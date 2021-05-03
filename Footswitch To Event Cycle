@@ -1,0 +1,31 @@
+desc:Allows for cycling between two MIDI CC events from a single MIDI CC event.
+//author: Nihilish
+
+slider1:0<0,127,1>CC Received
+slider2:0<0,127,1>First CC Sent
+slider3:1<0,127,1>Second CC Sent
+
+@slider
+ccReceived = slider1;
+firstCCSent = slider2;
+secondCCSent = slider3;
+
+isFirstCC = 1;
+
+@block
+while (midirecv(offset,msg1,msg2,msg3)) (
+   msg1 == 176 && msg2 == ccReceived && msg3==0 ? (
+     isFirstCC == 1 ? 
+      (
+        midisend(offset,176,firstCCSent,127);
+        isFirstCC = 0;
+      ) : 
+      (
+      midisend(offset,176,secondCCSent,127);
+      isFirstCC = 1;
+      );
+   ) 
+);
+
+
+
