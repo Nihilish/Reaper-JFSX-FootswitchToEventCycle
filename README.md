@@ -1,4 +1,4 @@
-# Reaper-JFSX-FootswitchToEventCycle
+# Reaper-JSFX-FootswitchToEventCycle
 Short script to use a single event footswitch to toggle between two states.
 
 I recently got a series of Neural DSP plugins, and I wanted to be able to switch between two presets when jamming along to some tracks, without having to stop playing or use automation. I had an old sustain pedal from one of my older keyboard laying around so I figured there would be a way to use it for that purpose. I opened the MIDI mapping section of Neural DSP to find that sadly there wasn't an option that would allow to 'cycle' between 2 different presets from a single MIDI event.
